@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/transportesPendientes.css" rel="stylesheet">
+    <link rel="icon" href="/static/img/descargar.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Logipack</title>
+</head>
+
+<body>
+    <form action="{{ url_for('registrarLlegadaTransporte') }}" method="post">
+        <h1>Seleccione transporte para registrar su llegada:</h1>
+        <ul>
+            {% for transporte in transportes %}
+            <li>
+                <label for=""> Transporte Nº: {{ transporte.numerotransporte }} - Fecha y Hora de salida: {{
+                    transporte.fechahorasalida }}
+                    <input type="checkbox" name="transportesSeleccionados[]" value="{{ transporte.id }}">
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Registrar llegada</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/transporte.css" rel="stylesheet">
+    <link rel="icon" href="/static/img/descargar.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">    
+    <title>Logipack</title>
+</head>
+<body>
+    <form action="{{ url_for('registrarTransporte') }}" method="post">
+        <h1>Seleccione paquetes para transportar a {{ sucursal.provincia }}</h1>
+        <ul>
+            {% for paquete in paquetes %}
+                <label for="">Envío N°: {{ paquete.numeroenvio }} - Dirección: {{ paquete.dirdestinatario }}
+                    <input type="checkbox" name="paquetesSeleccionados[]" value="{{ paquete.id }}">
+                </label>
+            {% endfor %}
+        </ul>
+        <button type="submit">Registrar Transporte</button><br>
+    </form>
+</body>
+</html>

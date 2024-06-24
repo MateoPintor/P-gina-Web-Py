@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/transporte.css" rel="stylesheet">
+    <link rel="icon" href="/static/img/descargar.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">    
+    <title>Logipack</title>
+</head>
+<body>
+    <h1>Seleccione Sucursal de destino del transporte:</h1>
+    <ul>
+        {% for sucursal in sucursales %}
+            <li>
+                <a href="{{ url_for('selectSucursalDestino', id=sucursal.id) }}">
+                    Sucursal N°: {{ sucursal.numero }} ({{ sucursal.provincia }}) - Localidad: {{ sucursal.localidad }}, ubicada en: {{ sucursal.direccion }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

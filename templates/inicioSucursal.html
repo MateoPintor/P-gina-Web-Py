@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/img/descargar.jpeg">
+    <link rel="stylesheet" href="/static/css/inicioSucursales.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">    
+    
+    <title>Logipack</title>
+</head>
+<body>
+    {% if sucursal %}
+    <h1>Sucursal {{ sucursal.provincia }}</h1>
+    {% endif %}
+    <div class="container">
+        <div class="infosucursal">
+            <p>Número: {{ sucursal.numero }}</p>
+            <p>Provincia: {{ sucursal.provincia }}</p>
+            <p>Localidad: {{ sucursal.localidad }}</p>
+        </div>
+
+        <div class="options">
+            <a href="/regPaquete">Registrar paquete</a>
+            <a href="/selectSucursalTransporte">Salida transporte</a>
+            <a href="/transportesPendientesLlegada">Llegada transporte</a>
+        </div>
+    </div>
+</body>
+</html>
